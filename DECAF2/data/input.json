@@ -1,0 +1,45 @@
+﻿{
+    "debug" : "true",
+    "environments": [
+        [
+            0,
+            0.01
+        ],
+        [
+            0.01,
+            0
+        ]
+    ],
+    "components": {
+        "A": {
+            "redundancy": 2,
+            "required": 1,
+            "cascading": {
+			   "B" : 0.2
+            },
+            "failure": [
+                0.01,
+                0.03
+            ],
+            "repair": [
+                1,
+                1
+            ]
+        },
+        "B": {
+            "redundancy": 2,
+            "required": 1,
+            "cascading": {
+                "A" : 0.3
+            },
+            "failure": [
+                0.02,
+                0.04
+            ],
+            "repair": [
+                1,
+                1
+            ]
+        }
+    }
+}
