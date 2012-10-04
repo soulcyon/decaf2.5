@@ -27,7 +27,7 @@ namespace decaf
             InitializeComponent();
             try
             {
-                DECAF d = new DECAF();
+                DECAF d = new DECAF(true);
             }
             catch (Exception err)
             {

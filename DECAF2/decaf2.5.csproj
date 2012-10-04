@@ -74,7 +74,7 @@
     <Compile Include="lib\Matrix.cs" />
     <Compile Include="src\DECAF.cs" />
     <Compile Include="src\processes\ConfigParser.cs" />
-    <Compile Include="src\processes\QMatrixProcess.cs" />
+    <Compile Include="src\structures\JSON.cs" />
     <Compile Include="src\structures\Node.cs" />
     <Compile Include="src\structures\Point.cs" />
     <Compile Include="src\Simulation.cs" />
