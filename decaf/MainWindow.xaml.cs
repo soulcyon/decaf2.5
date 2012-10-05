@@ -18,7 +18,6 @@ namespace decaf
             try
             {
                 var d = new DECAF(true);
-                MessageBox.Show(d.MTTF.ToString(CultureInfo.InvariantCulture));
             }
             catch (Exception err)
             {

@@ -7,12 +7,9 @@ namespace decaf
 {
     public class State : IEnumerable<KeyValuePair<string, byte>>
     {
-        public int Environment;
-        public Dictionary<string, byte> Vector;
-        public int Index
-        {
-            get { return Simulation.StateMap[this]; }
-        }
+        public int Environment { get; set; }
+        public Dictionary<string, byte> Vector { get; private set; }
+        public int Index { get { return Simulation.StateMap[this]; } }
 
         public State(int e)
         {
@@ -22,10 +19,20 @@ namespace decaf
             }
             Environment = e;
             Vector = new Dictionary<string, byte>();
-            foreach( var type in Simulation.TypeList )
+            foreach( var cKvp in Simulation.Components )
             {
-                Vector.Add(type, 0);
+                Vector.Add(cKvp.Key, 0);
             }
+        }
+
+        public void Add(string type, byte e)
+        {
+            if( Vector.ContainsKey(type) )
+            {
+                Vector[type] = e;
+                return;
+            }
+            Vector.Add(type, e);
         }
 
         // Calculate repair rate
@@ -48,9 +55,9 @@ namespace decaf
                 return null;
             }
             var temp = new State(a.Environment);
-            foreach(var k in Simulation.TypeList)
+            foreach(var cKvp in Simulation.Components)
             {
-                temp.Vector.Add(k, (byte)(a.Vector[k] + b.Vector[k]));
+                temp.Add(cKvp.Key, (byte)(a.Vector[cKvp.Key] + b.Vector[cKvp.Key]));
             }
             return temp;
         }
@@ -63,9 +70,9 @@ namespace decaf
                 return null;
             }
             var temp = new State(a.Environment);
-            foreach (var k in Simulation.TypeList)
+            foreach (var cKvp in Simulation.Components)
             {
-                temp.Vector.Add(k, (byte)(a.Vector[k] - b.Vector[k]));
+                temp.Vector.Add(cKvp.Key, (byte)(a.Vector[cKvp.Key] - b.Vector[cKvp.Key]));
             }
             return temp;
         }
@@ -103,5 +110,15 @@ namespace decaf
         }
 
         #endregion
+
+        public State Clone()
+        {
+            var temp = new State(Environment);
+            foreach (var k in Vector)
+            {
+                temp.Add(k.Key, k.Value);
+            }
+            return temp;
+        }
     }
 }

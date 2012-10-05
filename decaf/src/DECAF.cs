@@ -6,10 +6,6 @@ namespace decaf
     public class DECAF
     {
         // Optional statistical variables
-        protected uint NumberOfAvoidedTrees = 0; /* Number of trees not generated explicitly */
-        protected uint NumberOfTransitions = 0; /* Number of failure transitions filled in the QMatrix */
-        protected uint NumberOfTrees = 0; /* Number of all trees - identical to the value in Srini's code */
-        protected uint NumberOfUniqueTrees = 0; /* Number of trees uniquely generated */
         protected ulong TimeToInit = 0; /* Loading JSON and initializing StateList, nodeMap etc... */
         protected Stopwatch Timer = new Stopwatch();
 
@@ -35,6 +31,7 @@ namespace decaf
             if (input == null) throw new ArgumentNullException("input");
 
             ConfigParser.Parse(input);
+            Simulation.Run();
         }
 
         public double MTTF
