@@ -29,10 +29,10 @@
                 <GroupBox Header="Components" HorizontalAlignment="Stretch"  Margin="0,121,0,0" VerticalAlignment="Top" Height="174" Padding="0,5,0,0">
                     <GroupBox HorizontalAlignment="Stretch" Margin="0" BorderBrush="Transparent" VerticalAlignment="Stretch" Width="Auto">
                         <Grid Margin="0">
-                            <Button x:Name="addComponent" Content="Add" HorizontalAlignment="Left" Width="60" Margin="0,0,144,0" VerticalAlignment="Top" Click="addComponent_Click" FontSize="10" Height="17" />
+                            <Button x:Name="addComponent" Content="Add" HorizontalAlignment="Left" Width="60" Margin="0,0,144,0" VerticalAlignment="Top" Click="AddComponentClick" FontSize="10" Height="17" />
                             <Button x:Name="delComponent" Content="Delete" HorizontalAlignment="Left" Width="60" Margin="130,0,14,0" VerticalAlignment="Top" FontSize="10" Height="17" />
-                            <Button x:Name="batchComponent" Content="Batch" HorizontalAlignment="Left" Width="60" Margin="65,0,79,0" VerticalAlignment="Top" Click="addComponent_Click" FontSize="10" Height="17" />
-                            <ListBox x:Name="componentList" Height="Auto" Margin="0,22,0,3" MouseLeftButtonUp="componentList_MouseLeftButtonUp"></ListBox>
+                            <Button x:Name="batchComponent" Content="Batch" HorizontalAlignment="Left" Width="60" Margin="65,0,79,0" VerticalAlignment="Top" Click="AddComponentClick" FontSize="10" Height="17" />
+                            <ListBox x:Name="componentList" Height="Auto" Margin="0,22,0,3" MouseLeftButtonUp="ComponentListMouseLeftButtonUp"></ListBox>
                         </Grid>
                     </GroupBox>
                 </GroupBox>
@@ -40,18 +40,18 @@
                     <GroupBox HorizontalAlignment="Stretch" Margin="0" BorderBrush="Transparent" VerticalAlignment="Stretch" Width="Auto" Padding="0,5,0,0">
                         <Grid Margin="0" HorizontalAlignment="Stretch" Width="Auto">
                             <TextBlock HorizontalAlignment="Left" Margin="47,4,0,0" VerticalAlignment="Top" Text="Type:"/>
-                            <TextBox x:Name="componentName" HorizontalAlignment="Stretch" Height="20" Margin="80,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="componentName_LostFocus" />
+                            <TextBox x:Name="componentName" HorizontalAlignment="Stretch" Height="20" Margin="80,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="ComponentNameLostFocus" />
                             <TextBlock HorizontalAlignment="Left" Margin="25,29,0,0" VerticalAlignment="Top" Text="Required:"/>
-                            <TextBox x:Name="componentReq" HorizontalAlignment="Stretch" Height="20" Margin="80,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="componentReq_LostFocus"/>
+                            <TextBox x:Name="componentReq" HorizontalAlignment="Stretch" Height="20" Margin="80,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="ComponentReqLostFocus"/>
                             <TextBlock HorizontalAlignment="Left" Margin="7,54,0,0" VerticalAlignment="Top" Text="Redundancy:"/>
-                            <TextBox x:Name="componentRed" HorizontalAlignment="Stretch" Height="20" Margin="80,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="componentRed_LostFocus"/>
+                            <TextBox x:Name="componentRed" HorizontalAlignment="Stretch" Height="20" Margin="80,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" LostFocus="ComponentRedLostFocus"/>
                             <Button x:Name="manageRatesButton" Content="Manage Failure Rates" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="190" FontSize="10" Height="17"/>
                         </Grid>
                     </GroupBox>
                 </GroupBox>
             </Grid>
         </GroupBox>
-        <GridSplitter x:Name="theSplitter" Grid.Column="0" Grid.RowSpan="1" Height="450" VerticalAlignment="Center" Width="4" ResizeDirection="Columns" ShowsPreview="true" BorderThickness="1,1,0,0" Background="#7A000000" IsTabStop="False" ScrollViewer.CanContentScroll="True" MouseDoubleClick="theSplitter_DoubleClick">
+        <GridSplitter x:Name="theSplitter" Grid.Column="0" Grid.RowSpan="1" Height="450" VerticalAlignment="Center" Width="4" ResizeDirection="Columns" ShowsPreview="true" BorderThickness="1,1,0,0" Background="#7A000000" IsTabStop="False" ScrollViewer.CanContentScroll="True" MouseDoubleClick="TheSplitterDoubleClick">
             <GridSplitter.Effect>
                 <DropShadowEffect Direction="300" BlurRadius="2" ShadowDepth="2" RenderingBias="Quality" />
             </GridSplitter.Effect>

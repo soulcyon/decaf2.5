@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Media.Animation;
 
 namespace decaf
 {
@@ -21,13 +11,14 @@ namespace decaf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GridLength previousWidth;
+        private GridLength _previousWidth = new GridLength(250.0);
         public MainWindow()
         {
             InitializeComponent();
             try
             {
-                DECAF d = new DECAF(true);
+                var d = new DECAF(true);
+                MessageBox.Show(d.MTTF.ToString(CultureInfo.InvariantCulture));
             }
             catch (Exception err)
             {
@@ -35,32 +26,30 @@ namespace decaf
             }
         }
 
-        private void addComponent_Click(object sender, RoutedEventArgs e)
+        private void AddComponentClick(object sender, RoutedEventArgs e)
         {
-            this.componentList.Items.Add(getEquivColumn(this.componentList.Items.Count));
+            componentList.Items.Add(GetEquivColumn(componentList.Items.Count));
         }
 
-        private void theSplitter_DoubleClick(object sender, MouseButtonEventArgs e)
+        private void TheSplitterDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //this.leftColumn.Width = new GridLength(250);
-            GridLengthAnimation myDoubleAnimation = new GridLengthAnimation();
-            myDoubleAnimation.From = this.leftColumn.Width;
+            var myDoubleAnimation = new GridLengthAnimation {From = leftColumn.Width};
 
-            if (this.leftColumn.Width.Value == 5.0)
+            if (leftColumn.Width.Value - 60 < 0)
             {
-                myDoubleAnimation.To = previousWidth;
+                myDoubleAnimation.To = _previousWidth;
             }
             else
             {
                 myDoubleAnimation.To = new GridLength(0.0);
-                previousWidth = this.leftColumn.Width;
+                _previousWidth = leftColumn.Width;
             }
             myDoubleAnimation.Duration = new Duration(TimeSpan.FromSeconds(0.5));
             myDoubleAnimation.AccelerationRatio = 0.95;
             leftColumn.BeginAnimation(ColumnDefinition.WidthProperty, myDoubleAnimation);
         }
 
-        public String getEquivColumn(int number)
+        public String GetEquivColumn(int number)
         {
             String converted = "";
             while (number >= 0)
@@ -73,7 +62,7 @@ namespace decaf
             return converted;
         }
 
-        private void componentList_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void ComponentListMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (componentList.SelectedIndex == -1)
             {
@@ -86,17 +75,17 @@ namespace decaf
             }
         }
 
-        private void componentName_LostFocus(object sender, RoutedEventArgs e)
+        private void ComponentNameLostFocus(object sender, RoutedEventArgs e)
         {
             Dispatcher.BeginInvoke((Action)(() => componentName.Focus()));
         }
 
-        private void componentReq_LostFocus(object sender, RoutedEventArgs e)
+        private void ComponentReqLostFocus(object sender, RoutedEventArgs e)
         {
             Dispatcher.BeginInvoke((Action)(() => componentReq.Focus()));
         }
 
-        private void componentRed_LostFocus(object sender, RoutedEventArgs e)
+        private void ComponentRedLostFocus(object sender, RoutedEventArgs e)
         {
             Dispatcher.BeginInvoke((Action)(() => componentRed.Focus()));
         }
