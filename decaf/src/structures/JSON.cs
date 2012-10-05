@@ -9,10 +9,5 @@ namespace decaf
         public Dictionary<String, Node> components;
         public Boolean debug;
         public double[,] environments;
-
-        public Json()
-        {
-            MessageBox.Show(components.ToString());
-        }
     }
 }

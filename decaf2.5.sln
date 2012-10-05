@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "decaf2.5", "DECAF2\decaf2.5.csproj", "{EE2360E7-A8D4-47CC-8AB2-66BAFC608222}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "decaf2.5", "decaf\decaf2.5.csproj", "{EE2360E7-A8D4-47CC-8AB2-66BAFC608222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

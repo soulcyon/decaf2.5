@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:decaf"
         x:Class="decaf.MainWindow"
-        Title="DeCAF2" Height="480" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0" WindowStyle="ToolWindow">
+        Title="DECAF" Height="480" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" BorderThickness="0" WindowStyle="ToolWindow">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="leftColumn" Width="250" MaxWidth="400" MinWidth="5" />
