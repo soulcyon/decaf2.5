@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,13 +13,19 @@ namespace decaf
     /// </summary>
     public partial class MainWindow : Window
     {
+        [DllImport("kernel32.dll")]
+        static extern bool AttachConsole(int dwProcessId);
+        private const int ATTACH_PARENT_PROCESS = -1;
+
         private GridLength _previousWidth = new GridLength(250.0);
         public MainWindow()
         {
             InitializeComponent();
             try
             {
+                AttachConsole(ATTACH_PARENT_PROCESS);
                 var d = new DECAF(true);
+                d.GenerateStatistics();
             }
             catch (Exception err)
             {

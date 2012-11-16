@@ -43,5 +43,19 @@ namespace decaf
         {
             get { return Simulation.CalculateSsu(); }
         }
+
+        internal void GenerateStatistics()
+        {
+            Console.WriteLine("\nQMatrix (EnvChange):                " + Simulation.TimeToEnvChange);
+            Console.WriteLine("QMatrix (Repair):                   " + Simulation.TimeToRepair);
+            Console.WriteLine("QMatrix (Failure+Trees):            " + Simulation.TimeToFail);
+            Console.WriteLine("\nTotal Processing Time:              " + Simulation.TimeToQMatrix);
+            Console.WriteLine("Total Generated Trees:              " + Simulation.NumberOfTrees);
+            Console.WriteLine("Total States:                       " + Simulation.Length);
+            Console.WriteLine("\nMTTF:                               " + MTTF);
+            Console.WriteLine("Time to compute MTTF:               " + Simulation.TimeToMTTF);
+            Console.WriteLine("\nSSU:                                " + SSU);
+            Console.WriteLine("Time to compute SSU:                " + Simulation.TimeToSSU);
+        }
     }
 }

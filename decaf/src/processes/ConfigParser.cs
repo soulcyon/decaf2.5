@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Windows;
 using Newtonsoft.Json;
 
 namespace decaf
@@ -20,10 +19,6 @@ namespace decaf
                             MaxDepth = 4, ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
                         };
             var t = JsonConvert.DeserializeObject<Json>(text, jss);
-            foreach(var kvp in t.components)
-            {
-                kvp.Value.Type = kvp.Key;
-            }
             Simulation.Setup(t);
         }
     }
